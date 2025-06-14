@@ -13,7 +13,8 @@ const Supplier = () => {
 	const handelAdd = async (e) => {
 		e.preventDefault();
 
-		const url = 'http://localhost:8000/supplier';
+		const apiBase = import.meta.env.VITE_API_URL;
+		const url = `${apiBase}/supplier`; 
 
 		const response = await fetch(url, {
 			method: 'POST',
@@ -52,8 +53,8 @@ const Supplier = () => {
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
-
-		const url = 'http://localhost:8000/supplier/' + supplierDetail['id'];
+		const apiBase = import.meta.env.VITE_API_URL;
+		const url = `${apiBase}/supplier/` + supplierDetail['id'];
 
 		const response = await fetch(url, {
 			method: 'PUT',
@@ -84,7 +85,8 @@ const Supplier = () => {
 
 
 	const handleDelete = () => {
-		fetch('http://127.0.0.1:8000/supplier/' + supplierDetail['id'], {
+		const apiBase = import.meta.env.VITE_API_URL;
+		fetch(apiBase + '/supplier/' + supplierDetail['id'], {
 			method: 'DELETE',
 			headers: {
 				accept: 'application/json'
@@ -118,8 +120,8 @@ const Supplier = () => {
 
     const handleEmail = async (e) => {
 		e.preventDefault();
-
-		const url = 'http://localhost:8000/email/' + supplierDetail['id'];
+		const apiBase = import.meta.env.VITE_API_URL;
+		const url =  apiBase + '/email/' + supplierDetail['id'];
 		console.log(supplierDetail['id'])
 
 		const response = await fetch(url, {

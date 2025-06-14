@@ -21,9 +21,9 @@ const AddProduct = () => {
 
     const postData = async(e) => {
         e.preventDefault()
-        console.log(productInfo)
+        const apiBase = import.meta.env.VITE_API_URL;
 
-        const url = "http://localhost:8000/product/" + productInfo['ProductSupplier']
+        const url = apiBase + "/product/" + productInfo['ProductSupplier']
 
         const resposne = await fetch(
             url,{

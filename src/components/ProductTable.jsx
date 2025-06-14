@@ -52,7 +52,8 @@ const ProductTable = () => {
   }
 
   const handelSupplier = (id) => {
-      fetch('http://localhost:8000/supplier/'+ id,{
+    const apiBase = import.meta.env.VITE_API_URL;
+      fetch(apiBase + '/supplier/'+ id,{
         headers:{
           Accept: 'application/json'
         }
@@ -73,7 +74,8 @@ const ProductTable = () => {
   }
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/product")
+    const apiBase = import.meta.env.VITE_API_URL;
+    fetch(apiBase + "/product")
       .then((response) => response.json())
       .then((data) => {
         console.log(data.data); // optional debug

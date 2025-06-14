@@ -13,8 +13,8 @@ const UpdateProduct = () => {
 
     const postData = async (e) => {
         e.preventDefault();
-       
-        const url = "http://localhost:8000/product/" + updateProduct['id']
+        const apiBase = import.meta.env.VITE_API_URL;
+        const url = apiBase + "/product/" + updateProduct['id']
 
         const response = await fetch(
             url,
